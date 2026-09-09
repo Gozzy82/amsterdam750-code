@@ -1,0 +1,39 @@
+{
+  "IsEncrypted": false,
+  "Host": {
+    "LocalHttpPort": 7071,
+    "CORS": "*",
+    "CORSCredentials": false
+  },
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "NODE_OPTIONS": "--enable-source-maps",
+
+    "TABLE_CONNECTION_STRING": "UseDevelopmentStorage=true",
+    "TABLE_NAME": "PreRegistrations",
+    "RATE_TABLE_NAME": "PreregistrationRatelimits",
+    "STATS_TABLE_NAME": "Stats",
+    "PHONE_LOCK_TABLE_NAME": "PhoneLocks",
+
+    "RL_EMAIL_LIMIT": "10",
+    "RL_WINDOW_SECONDS": "3600",
+
+    "TURNSTILE_SITEKEY": "1x00000000000000000000AA",
+    "TURNSTILE_SECRET": "1x0000000000000000000000000000000AA",
+
+    "KV_URL": "https://<your-keyvault-name>.vault.azure.net",
+    "KEK_KEY_NAME": "<your-key-name>",
+    "AZURE_TOKEN_CREDENTIALS": "AzureCliCredential",
+
+    "COMMUNICATIONS_SECRET_NAME": "communications-connection-string",
+    "EMAIL_FROM": "DoNotReply@<your-linked-sender-domain>",
+    "OTP_TABLE_NAME": "OtpCodes",
+
+    "TWILIO_ACCOUNT_SID": "<your-twilio-account-sid>",
+    "TWILIO_AUTH_TOKEN": "<your-twilio-auth-token>",
+    "TWILIO_FROM_NUMBER": "<your-twilio-phone-number>",
+
+    "APPLICATIONINSIGHTS_CONNECTION_STRING": ""
+  }
+}

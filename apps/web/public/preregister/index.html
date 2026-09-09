@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Pre-registreer je ticket voor Amsterdam 750 met je naam, telefoonnummer en e-mailadres." />
+    <title>Pre-registratie ticket</title>
+   <script src="../config.js" defer></script>
+   <script src="../vendor/htmx/htmx.min.js" defer></script>
+   <script src="../vendor/htmx/ext/json-enc.js" defer></script>
+   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
+   <script src="form-validation.js" defer></script>
+   <link rel="stylesheet" href="../style.css" />
+   </head>
+  <body>
+    <main id="main-content">
+      <h1>Pre-registratie ticket</h1>
+      <form id="preForm"
+  method="post"
+  hx-ext="json-enc"
+  hx-encoding="json"
+      hx-swap="none"
+  hx-validate="true"
+>
+  <label for="firstName" class="sr-only">Voornaam</label>
+  <input id="firstName" type="text" name="firstName" placeholder="Voornaam" autocomplete="given-name" required />
+
+  <label for="lastName" class="sr-only">Achternaam</label>
+  <input id="lastName" type="text" name="lastName" placeholder="Achternaam" autocomplete="family-name" required />
+
+  <label for="phone" class="sr-only">Telefoonnummer</label>
+  <div id="phone-hint" class="hint" hidden>Wordt gebruikt voor bevestiging.</div>
+  <input
+    id="phone"
+    type="tel"
+    name="phone"
+    pattern="\+[0-9]{7,20}" 
+    placeholder="Telefoonnummer"
+    autocomplete="tel"
+    required
+    aria-describedby="phone-hint"
+  />
+
+  <label for="email" class="sr-only">E-mailadres</label>
+  <div id="email-hint" class="hint" hidden>Wordt gebruikt voor bevestiging.</div>
+  <input
+    id="email"
+    type="email"
+    name="email"
+    placeholder="E-mailadres"
+    autocomplete="email"
+    required
+    aria-describedby="email-hint"
+  />
+  <div class="consent-field">
+    <input id="consent" type="checkbox" name="consent" required />
+    <label for="consent">Ik geef toestemming</label>
+  </div>
+  <div id="serverError" role="alert" aria-live="polite" hidden></div>
+  <div id="sendingStatus" aria-live="polite" hidden></div>
+  <div id="turnstile-widget"></div>
+  <button type="submit" id="sendbutton">Versturen</button>
+</form>
+    </main>
+  </body>
+</html>

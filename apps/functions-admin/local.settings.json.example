@@ -1,0 +1,27 @@
+{
+  "IsEncrypted": false,
+  "Host": {
+    "LocalHttpPort": 7072,
+    "CORS": "*",
+    "CORSCredentials": false
+  },
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "QUEUE_NAME": "invite-jobs",
+    "TABLE_CONNECTION_STRING": "UseDevelopmentStorage=true",
+    "TABLE_NAME": "PreRegistrations",
+    "STATS_TABLE_NAME": "Stats",
+    "PHONE_LOCK_TABLE_NAME": "PhoneLocks",
+
+    "KV_URL": "https://<your-vault>.vault.azure.net/",
+    "KEK_KEY_NAME": "kek-prereg",
+
+    "COMMUNICATIONS_SECRET_NAME": "communications-connection-string",
+    "EMAIL_FROM": "DoNotReply@<your-linked-sender-domain>",
+    "INVITE_BASE_URL": "https://<your-domain>/register/?token=",
+
+    "TABLE_ACCOUNT_URL": "https://<storage-account>.table.core.windows.net",
+    "QUEUE_ACCOUNT_URL": "https://<storage-account>.queue.core.windows.net"
+  }
+}

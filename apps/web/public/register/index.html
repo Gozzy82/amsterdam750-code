@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Rond je registratie af voor Amsterdam 750 met de unieke link uit je e-mail en verifieer je telefoonnummer." />
+  <title>Amsterdam 750 — Registratie</title>
+  <script src="../config.js" defer></script>
+  <script src="../vendor/htmx/htmx.min.js" defer></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <main id="main-content">
+    <h1>Registratie</h1>
+    <p class="hint">Je komt hier via een unieke link uit de e-mail (invite token).</p>
+
+      <form
+        id="registerForm"
+        hx-trigger="submit"
+      >
+        <input id="token" name="token" type="hidden" />
+
+        <label for="phone">Telefoonnummer</label>
+          <input
+            id="phone"
+            type="tel"
+            name="phone"
+            pattern="\+[0-9]{7,20}"
+            placeholder="+31612345678"
+            autocomplete="tel"
+            required
+            aria-describedby="phone-hint"
+          />
+        <div id="phone-hint" class="hint">Voer het telefoonnummer in dat je hebt gebruikt bij de pre-registratie. De verificatiecode zal naar dit nummer verzonden worden.</div>
+        <div id="verification-error" role="alert" aria-live="polite" hidden></div>
+        <div id="result" role="alert" aria-live="polite"></div>
+        <div id="turnstile-widget"></div>
+        <button type="submit" disabled aria-disabled="true">Registreer</button>
+      </form>
+  </main>
+
+  <script src="./register.js" defer></script>
+</body>
+</html>

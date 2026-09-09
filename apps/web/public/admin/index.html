@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin — Amsterdam 750</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="../config.admin.js"></script>
+    <script src="../vendor/d3@7.min.js"></script>
+    <script src="../vendor/msal-browser@5.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Amsterdam 750 — Admin</h1>
+        <div class="subtitle">Pre-registraties (geanonimiseerd)</div>
+      </div>
+      <div class="header-actions">
+        <span id="user-info"></span>
+        <button id="logout-btn" hidden>Uitloggen</button>
+      </div>
+    </header>
+
+    <main>
+      <div id="auth-panel">
+        <h2>Inloggen</h2>
+        <p>Log in met je Microsoft-account om de statistieken te bekijken.</p>
+        <button id="login-btn">Inloggen met Microsoft</button>
+        <div class="auth-error" id="auth-error" hidden></div>
+      </div>
+
+      <div id="stats-panel">
+        <div class="cards">
+          <div class="card accent">
+            <div class="label">Totaal</div>
+            <div class="value" id="c-total">—</div>
+          </div>
+          <div class="card">
+            <div class="label">Vandaag</div>
+            <div class="value" id="c-today">—</div>
+          </div>
+          <div class="card muted">
+            <div class="label">Challenge getoond</div>
+            <div class="value" id="c-challenge">—</div>
+          </div>
+          <div class="card muted">
+            <div class="label">Challenge geslaagd</div>
+            <div class="value" id="c-passed">—</div>
+          </div>
+          <div class="card muted">
+            <div class="label">Honeypot geblokkeerd</div>
+            <div class="value" id="c-honeypot">—</div>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <button class="refresh-btn" id="refresh-btn">↻ Vernieuwen</button>
+          <h2>Registraties per dag — laatste 30 dagen</h2>
+          <div id="chart"></div>
+          <p class="loading" id="chart-loading">Laden…</p>
+          <div class="last-updated" id="last-updated"></div>
+          <div class="action-row">
+            <button id="send-invites-btn">Send Invites</button>
+            <button id="reset-preregistrations-btn" class="danger-btn">Reset PreRegistrations</button>
+            <button id="delete-preregistrations-btn" class="danger-btn">Delete All PreRegistrations</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="./admin.js" defer></script>
+  </body>
+</html>
