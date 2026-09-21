@@ -1,10 +1,14 @@
-# Amsterdam 750 — Public Code Snapshot
+# Amsterdam 750 — Registration on Azure
 
-This repository is a sanitized portfolio snapshot of the implementation behind the Amsterdam 750 engineering case study.
+An independent pre-registration prototype using Azure Functions, Table Storage and Key Vault. It explores how to handle traffic spikes, protect personal data and keep the registration flow simple.
 
-**Case study:** https://gozzy82.github.io/amsterdam750-public/
+This is a personal engineering project, **not the official Amsterdam 750 ticketing system**. The companion case study explains the design and publishes synthetic load-test results with their methodology and limitations.
 
-## What this code demonstrates
+[Case study and load-test evidence](https://gozzy82.github.io/amsterdam750-public/) · [Portfolio](https://gerko.amsterdam/) · [LinkedIn](https://nl.linkedin.com/in/gerko-schrieken-b1853246)
+
+This repository is a **sanitized public source snapshot** of the implementation. It contains application code and infrastructure definitions, without private development history or operational data.
+
+## Main components
 
 - Azure Functions split into public and privileged/admin responsibilities
 - application-level PII protection and Key Vault integration
@@ -14,21 +18,16 @@ This repository is a sanitized portfolio snapshot of the implementation behind t
 - Infrastructure as Code with Bicep
 - automated tests around shared security and application behavior
 
-## Repository structure
+## Where to start
 
-```text
-apps/
-  web/               browser UI and HTMX flow
-  functions-public/  public pre-registration API
-  functions-admin/   privileged administration and invitation processing
-packages/
-  shared/             shared domain/security code, including PII encryption
-infra/
-  main.bicep          production-oriented Azure architecture
-  testing.bicep       isolated testing environment
-  bootstrap.bicep     bootstrap resources
-  modules/            reusable Bicep modules
-```
+| Area | Source |
+| --- | --- |
+| Public pre-registration API | [`apps/functions-public/`](apps/functions-public/) |
+| Administration and invitation processing | [`apps/functions-admin/`](apps/functions-admin/) |
+| Browser UI and HTMX flow | [`apps/web/`](apps/web/) |
+| Shared domain and security code, including PII encryption | [`packages/shared/`](packages/shared/) |
+| Azure infrastructure definitions | [`infra/`](infra/) |
+| Workspace commands | [`package.json`](package.json) |
 
 ## Security and publication scope
 
@@ -72,6 +71,6 @@ The `infra/` directory contains the Bicep source used to describe the Azure arch
 
 ## Related project
 
-The design decisions, security model and verified load-test evidence are explained in the companion engineering case study:
+The design decisions, security model and load-test evidence are explained in the companion engineering case study:
 
 https://gozzy82.github.io/amsterdam750-public/
